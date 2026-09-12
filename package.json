@@ -1,0 +1,39 @@
+{
+  "name": "nexa-social",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEXA Social — Free premium glass social platform. Own your feed. Platform owns the trends.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.12.0",
+    "@supabase/supabase-js": "^2.49.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.4.7",
+    "lucide-react": "^0.475.0",
+    "next": "^15.2.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.9",
+    "@types/node": "^22.13.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.21.0",
+    "eslint-config-next": "^15.2.4",
+    "tailwindcss": "^4.0.9",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
