@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/* ============================================================
+   NEXA SOCIAL — Production Design System
+   Apple Glass + Chrono-Kinetic Liquid Metal
+   MNC-grade visual quality
+   ============================================================ */
+
+:root {
+  --nexa-bg: #050506;
+  --nexa-bg-elevated: #0c0c0e;
+  --nexa-surface: rgba(18, 18, 22, 0.72);
+  --nexa-surface-solid: #121216;
+  --nexa-border: rgba(255, 255, 255, 0.07);
+  --nexa-border-hover: rgba(255, 255, 255, 0.14);
+  --nexa-text: #f5f5f7;
+  --nexa-text-secondary: #98989f;
+  --nexa-text-muted: #636366;
+  --nexa-gold: #ffd60a;
+  --nexa-gold-soft: rgba(255, 214, 10, 0.15);
+  --nexa-cyan: #64d2ff;
+  --nexa-blue: #0a84ff;
+  --nexa-success: #30d158;
+  --nexa-danger: #ff453a;
+  --nexa-blur: 24px;
+  --nexa-radius: 18px;
+  --nexa-radius-sm: 12px;
+  --nexa-radius-xs: 8px;
+  --nexa-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  --nexa-glow-gold: 0 0 32px rgba(255, 214, 10, 0.18);
+}
+
+@theme inline {
+  --color-nexa-bg: var(--nexa-bg);
+  --color-nexa-surface: var(--nexa-surface-solid);
+  --color-nexa-text: var(--nexa-text);
+  --color-nexa-gold: var(--nexa-gold);
+  --color-nexa-cyan: var(--nexa-cyan);
+  --color-nexa-blue: var(--nexa-blue);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--nexa-bg);
+  color: var(--nexa-text);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glass {
+  background: var(--nexa-surface);
+  backdrop-filter: blur(var(--nexa-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--nexa-blur)) saturate(160%);
+  border: 1px solid var(--nexa-border);
+  border-radius: var(--nexa-radius);
+  box-shadow: var(--nexa-shadow);
+}
+
+.glass-card {
+  background: linear-gradient(
+    155deg,
+    rgba(28, 28, 34, 0.75) 0%,
+    rgba(14, 14, 18, 0.6) 100%
+  );
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  border: 1px solid var(--nexa-border);
+  border-radius: var(--nexa-radius);
+  box-shadow: var(--nexa-shadow);
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--nexa-border-hover);
+}
+
+.glass-card.interactive:hover {
+  border-color: rgba(255, 214, 10, 0.22);
+  box-shadow: var(--nexa-shadow), var(--nexa-glow-gold);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #ffd60a 0%, #e6b800 100%);
+  color: #0a0a0b;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 9999px;
+  padding: 0.55rem 1.35rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.15s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--nexa-glow-gold);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--nexa-border);
+  color: var(--nexa-text);
+  font-size: 0.875rem;
+  border-radius: 9999px;
+  padding: 0.55rem 1.2rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--nexa-border-hover);
+}
+
+.story-ring {
+  background: conic-gradient(from 210deg, var(--nexa-gold), var(--nexa-cyan), var(--nexa-gold));
+  padding: 2px;
+  border-radius: 9999px;
+}
+
+.story-ring-inner {
+  background: var(--nexa-bg);
+  border-radius: 9999px;
+  padding: 2px;
+}
+
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--nexa-gold), transparent);
+  opacity: 0.45;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.18); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--nexa-cyan);
+  outline-offset: 2px;
+}
