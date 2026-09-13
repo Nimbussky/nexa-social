@@ -2,6 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import {
   Home,
@@ -57,11 +64,21 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <button className="btn-ghost hidden sm:inline-flex text-[13px]" aria-label="Create post">
-            <Plus size={15} strokeWidth={2.2} />
-            Create
-          </button>
-          <button className="btn-primary text-[13px]">Sign in</button>
+          <SignedIn>
+            <Link href="/" className="btn-ghost hidden sm:inline-flex text-[13px]">
+              <Plus size={15} strokeWidth={2.2} />
+              Create
+            </Link>
+            <UserButton afterSignOutUrl="/" appearance={{ elements: { avatarBox: "h-8 w-8" } }} />
+          </SignedIn>
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="btn-ghost text-[13px]">Log in</button>
+            </SignInButton>
+            <SignUpButton mode="modal">
+              <button className="btn-primary text-[13px]">Sign up</button>
+            </SignUpButton>
+          </SignedOut>
         </div>
       </div>
 
@@ -77,7 +94,6 @@ export function Navbar() {
                   "flex flex-col items-center gap-0.5 px-2 py-1 rounded-lg transition-colors",
                   active ? "text-[var(--nexa-gold)]" : "text-[var(--nexa-text-muted)]"
                 )}
-                aria-label={label}
               >
                 <Icon size={20} strokeWidth={active ? 2.2 : 1.7} />
                 <span className="text-[10px] font-medium">{label}</span>
